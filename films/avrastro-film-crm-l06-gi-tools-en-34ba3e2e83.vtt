@@ -1,0 +1,97 @@
+WEBVTT
+
+1
+00:00:00.450 --> 00:00:02.668
+On the client card, “Insured items”
+
+2
+00:00:02.668 --> 00:00:05.790
+keeps the client’s vehicles, home and business in one place,
+
+3
+00:00:05.976 --> 00:00:09.354
+with values, drivers, dates and the linked policies.
+
+4
+00:00:09.912 --> 00:00:11.699
+Press “Add item”.
+
+5
+00:00:12.799 --> 00:00:17.280
+For a vehicle, registration, make, no-claims years and drivers;
+
+6
+00:00:17.466 --> 00:00:19.498
+a follow-up is created fourteen days
+
+7
+00:00:19.498 --> 00:00:21.854
+before the MOT and the road-tax date.
+
+8
+00:00:22.157 --> 00:00:27.624
+For a home, area, year built, rebuild value and contents value.
+
+9
+00:00:28.724 --> 00:00:31.835
+If the area times the cost per square metre comes out
+
+10
+00:00:31.835 --> 00:00:36.130
+higher than the recorded rebuild value, the CRM flags it:
+
+11
+00:00:36.375 --> 00:00:39.126
+worth checking with the client and the insurer.
+
+12
+00:00:39.498 --> 00:00:43.503
+It is indicative, not advice and not a valuation.
+
+13
+00:00:44.603 --> 00:00:47.285
+A premium the insurer could not collect is recorded
+
+14
+00:00:47.285 --> 00:00:50.233
+on the policy with “Record overdue premium”,
+
+15
+00:00:50.536 --> 00:00:54.064
+or you bring in the insurer’s list with “Import insurer list”:
+
+16
+00:00:54.530 --> 00:00:57.618
+you choose the policy number, amount and due date columns,
+
+17
+00:00:57.618 --> 00:01:02.354
+and rows match only on the exact policy number, never by guess.
+
+18
+00:01:03.454 --> 00:01:06.669
+If the amount stays open longer than the days set in Settings,
+
+19
+00:01:06.763 --> 00:01:10.744
+fifteen by default, the policy shows “Risk of lapse”.
+
+20
+00:01:10.989 --> 00:01:13.681
+The reminder to the client opens as a draft,
+
+21
+00:01:13.775 --> 00:01:15.703
+and you close the item as “Paid”
+
+22
+00:01:15.703 --> 00:01:17.072
+or “Lapsed”.
+
+23
+00:01:18.172 --> 00:01:19.297
+In the next lesson:
+
+24
+00:01:19.321 --> 00:01:21.480
+how to ask your clients for feedback.

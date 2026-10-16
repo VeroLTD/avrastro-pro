@@ -1,0 +1,137 @@
+WEBVTT
+
+1
+00:00:00.450 --> 00:00:03.584
+Your clients come in one by one with “New person”,
+
+2
+00:00:03.770 --> 00:00:09.679
+from an Excel or CSV file with a duplicate check, as a contact list in “Prospecting”,
+
+3
+00:00:09.982 --> 00:00:12.999
+or with the whole file of your previous CRM.
+
+4
+00:00:14.099 --> 00:00:18.870
+In “Data & safety”, or in the setup wizard’s step, “Import clients”
+
+5
+00:00:18.871 --> 00:00:24.117
+takes an .xlsx or .csv file, or rows you paste.
+
+6
+00:00:24.420 --> 00:00:27.670
+You check which column is the name, phone or e-mail,
+
+7
+00:00:27.671 --> 00:00:30.921
+and choose whether they come in as clients or prospects.
+
+8
+00:00:32.021 --> 00:00:35.108
+Before anything is saved, each row shows as new,
+
+9
+00:00:35.167 --> 00:00:39.950
+as someone already in AVRASTRO with the same phone, e-mail or name,
+
+10
+00:00:40.043 --> 00:00:45.371
+even written in Greek or Latin letters, as repeated in the file, or with no name.
+
+11
+00:00:45.674 --> 00:00:47.705
+Existing people are not changed,
+
+12
+00:00:47.891 --> 00:00:51.722
+and the whole import can be undone with Ctrl+Z.
+
+13
+00:00:52.822 --> 00:00:55.619
+In “Prospecting”, press “Import contacts”:
+
+14
+00:00:55.864 --> 00:00:59.671
+choose a CSV or Excel file, or paste rows.
+
+15
+00:00:59.916 --> 00:01:00.624
+Columns:
+
+16
+00:01:00.624 --> 00:01:05.836
+name, phone, e-mail, occupation, company, area, source and notes;
+
+17
+00:01:06.023 --> 00:01:07.740
+the header row is optional.
+
+18
+00:01:07.927 --> 00:01:10.108
+From there, prospects become clients.
+
+19
+00:01:11.208 --> 00:01:15.178
+If you used the earlier VÉRO CRM, go to “Data & safety”:
+
+20
+00:01:15.364 --> 00:01:18.092
+“Choose backup file”, then “Analyze”.
+
+21
+00:01:18.278 --> 00:01:21.076
+You see what is new, what changes and what
+
+22
+00:01:21.076 --> 00:01:23.641
+stays the same, before anything is written.
+
+23
+00:01:23.944 --> 00:01:27.078
+You choose merge, which is safe to re-import,
+
+24
+00:01:27.079 --> 00:01:30.445
+or replace, and press “Import now”.
+
+25
+00:01:31.545 --> 00:01:34.389
+Before the import a safety snapshot is taken,
+
+26
+00:01:34.482 --> 00:01:38.603
+an integrity check runs, and at the end the import is verified.
+
+27
+00:01:38.848 --> 00:01:42.190
+If verification fails, the changes are rolled back.
+
+28
+00:01:43.290 --> 00:01:45.566
+For policies, “Policy from PDF”
+
+29
+00:01:45.566 --> 00:01:48.130
+reads the insurer’s policy schedule on this device.
+
+30
+00:01:48.596 --> 00:01:51.892
+Each value shows the line it came from, you check and correct it,
+
+31
+00:01:52.079 --> 00:01:55.468
+and nothing is saved until you press “Save policy”.
+
+32
+00:01:56.568 --> 00:01:58.018
+In the “Client list”
+
+33
+00:01:58.019 --> 00:02:00.898
+you see every client, fill in what is missing,
+
+34
+00:02:01.084 --> 00:02:04.613
+print it, or export it as CSV for Excel.

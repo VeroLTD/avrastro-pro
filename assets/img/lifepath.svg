@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" fill="none">
+  <!-- The rising path under the four life stages of /roadmaps/ (.vero-lifepath): it runs below each stage (photo + label)
+       and ends in an arrow. Geometry matches vero.css: stages 23% wide at x 0 / 25.5 / 51 / 76.5%, tops 52 / 36 / 20 / 4%. -->
+  <defs>
+    <marker id="tip" viewBox="0 0 12 12" refX="7" refY="6" markerWidth="4.6" markerHeight="4.6" orient="auto-start-reverse">
+      <path d="M1 1 11 6 1 11z" fill="#d9ad5a"/>
+    </marker>
+  </defs>
+  <path d="M60 991 L960 426" stroke="#f0d39a" stroke-opacity=".16" stroke-width="30" stroke-linecap="round"/>
+  <path d="M60 991 L955 429" stroke="#d9ad5a" stroke-width="7" stroke-linecap="round" marker-end="url(#tip)"/>
+  <g fill="#061b2d" stroke="#d9ad5a" stroke-width="6">
+    <circle cx="115" cy="957" r="11"/>
+    <circle cx="370" cy="797" r="11"/>
+    <circle cx="625" cy="637" r="11"/>
+    <circle cx="880" cy="477" r="11"/>
+  </g>
+</svg>

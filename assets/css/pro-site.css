@@ -1,0 +1,14 @@
+/* AVRASTRO Pro — static site (pro.avrastro.com). The theme's own stylesheet (vero.css, copied unchanged) draws every
+   page; these few rules stand in for what WordPress core adds to block content, and style the two cards that lead to
+   the forms on avrastro.com (sign-up, contact). */
+.wp-block-image { margin: 0 0 1em; }
+.entry > .wp-block-image:last-child { margin-bottom: 0; }
+.pro-handoff { display: grid; gap: var(--space-3); justify-items: start; }
+.pro-handoff .vc-title { margin: 0; }
+.pro-handoff p { margin: 0; max-width: 60ch; }
+.pro-handoff .vc-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-4); margin-top: var(--space-2); }
+.pro-handoff__note { font-size: .925rem; color: var(--muted); }
+.pro-signed-in { margin: var(--space-5) 0 0; text-align: center; font-size: .95rem; }
+.page-404 { padding-block: var(--space-8); }
+.page-404 ul { display: flex; flex-wrap: wrap; gap: var(--space-3); list-style: none; padding: 0; margin: var(--space-5) 0 0; }
+.vero-section > .pro-handoff { width: calc(100% - 2 * var(--gutter)); max-width: 860px; margin-left: max(var(--gutter), calc((100% - var(--wrap)) / 2)); margin-right: auto; padding: var(--space-5); }
