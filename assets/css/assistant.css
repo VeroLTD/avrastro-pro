@@ -1,0 +1,129 @@
+/* AVRASTRO Connect 1.13 — the assistant launcher and panel (citizens on avrastro.com; advisors on AVRASTRO Pro and
+   pro.avrastro.com). Uses the theme's tokens when present (with the same values as fallbacks, for the static site);
+   contrast ≥ 4.5:1, tap targets ≥ 44px, visible focus, reduced motion respected; a bottom sheet on phones. */
+.vero-assist { --va-navy: var(--navy, #061b2d); --va-navy-2: var(--navy-2, #0c2a44); --va-navy-3: var(--navy-3, #133a5c); --va-gold: var(--gold, #d9ad5a);
+  --va-gold-soft: var(--gold-soft, #f3e3c0); --va-gold-ink: var(--gold-ink, #8a6420); --va-paper: var(--paper, #fffdf8); --va-cream: var(--cream, #f8f1e5);
+  --va-ink: var(--ink, #11243a); --va-ink-2: var(--ink-2, #33475e); --va-line: var(--line, #e2d6c1); --va-line-2: var(--line-2, #cdbd9f);
+  --va-on-navy: var(--on-navy, #f8f1e5); --va-on-navy-2: #c9d4df; --va-font: var(--sans, "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif);
+  --va-shadow: 0 24px 60px -24px rgba(6, 27, 45, .55), 0 2px 6px rgba(6, 27, 45, .12);
+  position: fixed; right: max(20px, env(safe-area-inset-right)); bottom: max(20px, env(safe-area-inset-bottom)); z-index: 60; font-family: var(--va-font); color: var(--va-ink); line-height: 1.45; }
+.vero-assist[hidden] { display: none; }
+.vero-assist *, .vero-assist *::before, .vero-assist *::after { box-sizing: border-box; }
+.vero-assist .vc-visually-hidden, .vero-assist .screen-reader-text { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.vero-assist svg { width: 20px; height: 20px; flex: none; }
+
+/* launcher: a calm pill with the AVRASTRO gold disc; a round button on phones */
+.vero-assist__launcher { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 6px 16px 6px 6px; border: 1px solid rgba(217, 173, 90, .35); border-radius: 999px;
+  background: var(--va-navy); color: var(--va-on-navy); font: 650 .98rem/1 var(--va-font); letter-spacing: .005em; box-shadow: var(--va-shadow); cursor: pointer; }
+.vero-assist__launcher:hover { background: var(--va-navy-2); }
+.vero-assist__launcher-icon { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--va-gold); color: var(--va-navy); }
+.vero-assist__ai { display: inline-block; padding: 2px 7px; border-radius: 999px; background: var(--va-gold-soft); color: var(--va-navy); font: 750 .7rem/1.4 var(--va-font); letter-spacing: .04em; vertical-align: middle; }
+.vero-assist.is-open .vero-assist__launcher { display: none; }
+/* a tool's result bar sits at the bottom too: the launcher moves above it */
+body:has(.vt-peek:not([hidden])) .vero-assist:not(.is-open) { bottom: calc(max(20px, env(safe-area-inset-bottom)) + 72px); }
+
+/* the panel */
+.vero-assist__panel { position: relative; width: min(400px, calc(100vw - 40px)); height: min(640px, calc(100vh - 40px)); height: min(640px, calc(100dvh - 40px)); display: flex; flex-direction: column;
+  background: var(--va-paper); border: 1px solid var(--va-line-2); border-radius: 20px; box-shadow: var(--va-shadow); overflow: hidden; }
+.vero-assist__panel[hidden] { display: none; }
+.vero-assist__head { display: flex; align-items: center; gap: 10px; padding: 12px 8px 12px 14px; background: var(--va-navy); color: var(--va-on-navy); border-bottom: 2px solid var(--va-gold); }
+.vero-assist__mark { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--va-gold); color: var(--va-navy); flex: none; }
+.vero-assist__titles { flex: 1; min-width: 0; }
+.vero-assist__head h2 { margin: 0; font: 650 1.02rem/1.25 var(--va-font); color: inherit; letter-spacing: 0; }
+.vero-assist__sub { margin: 2px 0 0; font-size: .8rem; line-height: 1.3; color: var(--va-on-navy-2); }
+.vero-assist__icon-btn { display: inline-grid; place-items: center; min-width: 44px; min-height: 44px; border: 0; border-radius: 12px; background: transparent; color: inherit; cursor: pointer; }
+.vero-assist__icon-btn:hover { background: rgba(255, 255, 255, .08); }
+.vero-assist__note { margin: 0; padding: 8px 14px; font-size: .8rem; line-height: 1.4; color: var(--va-ink-2); background: #eef3f8; border-bottom: 1px solid var(--va-line); }
+
+/* the conversation */
+.vero-assist__log { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 14px; display: flex; flex-direction: column; gap: 12px; background: linear-gradient(180deg, var(--va-cream), var(--va-paper) 140px); }
+.vero-assist__log:focus { outline: none; }
+.vero-assist__msg { max-width: 92%; padding: 10px 13px; border-radius: 16px; font-size: .95rem; line-height: 1.5; overflow-wrap: anywhere; }
+.vero-assist__msg p { margin: 0; }
+.vero-assist__msg p + p { margin-top: 8px; }
+.vero-assist__msg--me { align-self: flex-end; background: var(--va-navy-3); color: #fff; border-bottom-right-radius: 6px; }
+.vero-assist__msg--ai { align-self: flex-start; background: #fff; border: 1px solid var(--va-line); border-bottom-left-radius: 6px; }
+.vero-assist__msg--note { align-self: stretch; max-width: none; background: #fff; border: 1px solid var(--va-line-2); border-left: 4px solid var(--va-gold); }
+.vero-assist__msg.is-wait p { color: var(--va-ink-2); font-size: .88rem; }
+.vero-assist__dots { display: inline-flex; gap: 4px; margin-top: 6px; }
+.vero-assist__dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--va-gold-ink); opacity: .35; }
+.vero-assist__hint { margin-top: 10px !important; font-size: .82rem; color: var(--va-ink-2); font-weight: 600; }
+.vero-assist__chips { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.vero-assist__chip { width: 100%; min-height: 44px; padding: 8px 12px; border: 1px solid var(--va-line-2); border-radius: 12px; background: var(--va-cream); color: var(--va-ink); font: 500 .9rem/1.35 var(--va-font); text-align: left; cursor: pointer; }
+.vero-assist__chip:hover { border-color: var(--va-gold-ink); background: var(--va-gold-soft); }
+.vero-assist__src { margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--va-line-2); font-size: .85rem; }
+.vero-assist__src-title { font-weight: 650; color: var(--va-ink-2); }
+.vero-assist__src ul { margin: 4px 0 0; padding-left: 1.1em; }
+.vero-assist__src li { margin: 2px 0; }
+.vero-assist__msg a { color: var(--va-navy-3); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.vero-assist__src a { display: inline; line-height: 1.7; padding: 3px 0; }
+.vero-assist__tool { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; margin-top: 10px; padding: 10px 12px; min-height: 48px; border-radius: 12px; background: var(--va-gold-soft); color: var(--va-navy) !important; text-decoration: none; font-size: .88rem; }
+.vero-assist__tool-label { flex-basis: 100%; color: var(--va-ink-2); font-size: .8rem; }
+.vero-assist__tool strong { flex: 1; min-width: 0; }
+.vero-assist__tool:hover { background: #ecd6a6; }
+.vero-assist__book, .vero-assist__links a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 650; }
+.vero-assist__card h3 { margin: 0 0 6px; font: 650 1rem/1.3 var(--va-font); color: var(--va-ink); }
+.vero-assist__card h3:focus { outline: none; }
+.vero-assist__card h4 { margin: 10px 0 6px; font: 650 .92rem/1.3 var(--va-font); }
+.vero-assist__advisor { font-weight: 650; color: var(--va-navy-3); }
+.vero-assist__links { margin: 6px 0 0; padding-left: 1.1em; }
+.vero-assist__cb { margin-top: 8px; padding-top: 4px; border-top: 1px solid var(--va-line); }
+.vero-assist__field { display: grid; gap: 4px; margin-bottom: 8px; }
+.vero-assist__field label { font-size: .84rem; font-weight: 600; }
+.vero-assist__field input, .vero-assist__field select { min-height: 44px; padding: 8px 10px; border: 1px solid var(--va-line-2); border-radius: 10px; background: #fff; color: var(--va-ink); font: inherit; font-size: 16px; }
+.vero-assist__check { display: grid; grid-template-columns: 24px 1fr; gap: 4px 8px; align-items: start; margin: 8px 0; font-size: .85rem; }
+.vero-assist__check input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--va-navy-3); }
+.vero-assist__check > a { grid-column: 2; }
+.vero-assist__check q { font-style: italic; }
+.vero-assist__fine { margin: 0 0 8px !important; font-size: .78rem; color: var(--va-ink-2); }
+.vero-assist [aria-invalid="true"] { border-color: #b3372f !important; outline: 2px solid rgba(179, 55, 47, .25); }
+.vero-assist__cta { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 18px; margin-top: 4px; border: 0; border-radius: 12px; background: var(--va-navy); color: var(--va-on-navy) !important; font: 650 .95rem/1 var(--va-font); text-decoration: none; cursor: pointer; }
+.vero-assist__cta:disabled { opacity: .6; cursor: progress; }
+.vero-assist__status { margin-top: 6px !important; font-size: .85rem; color: #8d2b24; }
+.vero-assist__done { padding: 10px 12px; border-radius: 12px; background: #e8f3ec; color: #1d5a35; font-weight: 600; }
+
+/* the question */
+.vero-assist__form { padding: 10px 12px 10px; border-top: 1px solid var(--va-line); background: var(--va-paper); }
+.vero-assist__label { display: block; margin: 0 0 4px; font-size: .8rem; font-weight: 650; color: var(--va-ink-2); }
+.vero-assist__row { display: flex; align-items: flex-end; gap: 8px; }
+.vero-assist__row textarea { flex: 1; min-height: 46px; max-height: 140px; resize: none; padding: 11px 12px; border: 1px solid var(--va-line-2); border-radius: 14px; background: #fff; color: var(--va-ink); font: 16px/1.4 var(--va-font); }
+.vero-assist__send { display: inline-grid; place-items: center; width: 46px; height: 46px; border: 0; border-radius: 14px; background: var(--va-gold); color: var(--va-navy); cursor: pointer; flex: none; }
+.vero-assist__send:hover { background: #e6bd6f; }
+.vero-assist__send:disabled { opacity: .55; cursor: progress; }
+.vero-assist__meta { display: flex; justify-content: space-between; gap: 8px; margin-top: 6px; }
+.vero-assist__small { margin: 0; font-size: .74rem; line-height: 1.35; color: var(--va-ink-2); }
+.vero-assist__count { font-size: .74rem; color: var(--va-ink-2); white-space: nowrap; }
+.vero-assist__human { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; margin-top: 4px; padding: 0 10px 0 6px; border: 0; border-radius: 10px; background: transparent; color: var(--va-navy-3); font: 650 .86rem/1 var(--va-font); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.vero-assist__human:hover { background: var(--va-cream); }
+.vero-assist__human svg { width: 18px; height: 18px; }
+
+.vero-assist button:focus-visible, .vero-assist textarea:focus-visible, .vero-assist input:focus-visible, .vero-assist select:focus-visible, .vero-assist a:focus-visible { outline: 3px solid var(--va-gold-ink); outline-offset: 2px; }
+.vero-assist__head button:focus-visible { outline-color: var(--va-gold); }
+
+/* phones: a round launcher; the panel is a bottom sheet over a dimmed page */
+.vero-assist__backdrop { position: fixed; inset: 0; background: rgba(6, 27, 45, .45); }
+.vero-assist__backdrop[hidden] { display: none; }
+@media (max-width: 600px) {
+  .vero-assist { right: max(14px, env(safe-area-inset-right)); bottom: max(14px, env(safe-area-inset-bottom)); }
+  .vero-assist__launcher { padding: 6px; min-height: 56px; }
+  .vero-assist__launcher-icon { width: 44px; height: 44px; }
+  .vero-assist__launcher-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .vero-assist__launcher .vero-assist__ai { position: absolute; top: -4px; right: -4px; box-shadow: 0 0 0 2px var(--va-navy); }
+  .vero-assist.is-open { inset: 0; right: 0; bottom: 0; }
+  .vero-assist__panel { position: fixed; left: 0; right: 0; bottom: 0; width: 100%; height: 88vh; height: 88dvh; border-radius: 20px 20px 0 0; border-bottom: 0; padding-bottom: env(safe-area-inset-bottom); }
+  .vero-assist__head { padding-top: 16px; }
+  .vero-assist__note { font-size: .75rem; padding: 6px 14px; }
+  .vero-assist__head::before { content: ""; position: absolute; top: 6px; left: 50%; width: 40px; height: 4px; margin-left: -20px; border-radius: 4px; background: rgba(255, 255, 255, .35); }
+}
+html.vero-assist-lock, html.vero-assist-lock body { overflow: hidden; }
+@media (prefers-reduced-motion: no-preference) {
+  .vero-assist__launcher { transition: transform .15s ease, background-color .15s ease; }
+  .vero-assist__launcher:hover { transform: translateY(-2px); }
+  .vero-assist__panel { animation: vero-assist-in .2s ease-out; transform-origin: bottom right; }
+  .vero-assist__dots i { animation: vero-assist-dot 1s infinite ease-in-out; }
+  .vero-assist__dots i:nth-child(2) { animation-delay: .15s; } .vero-assist__dots i:nth-child(3) { animation-delay: .3s; }
+  @keyframes vero-assist-in { from { opacity: 0; transform: translateY(10px) scale(.98); } }
+  @keyframes vero-assist-dot { 0%, 100% { opacity: .25; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-2px); } }
+  @media (max-width: 600px) { .vero-assist__panel { animation-name: vero-assist-up; } @keyframes vero-assist-up { from { transform: translateY(40px); opacity: .6; } } }
+}
+@media print { .vero-assist { display: none !important; } }

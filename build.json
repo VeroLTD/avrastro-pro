@@ -1,10 +1,10 @@
 {
- "built": "2026-10-16T17:37:54.449Z",
+ "built": "2026-10-16T19:15:54.659Z",
  "base": "https://pro.avrastro.com",
  "main": "https://avrastro.com",
  "level": "footer",
  "filmsBase": "https://avrastro.com/wp-content/uploads/2026/10",
- "assistant": null,
+ "assistant": "https://app.avrastro.com",
  "pages": 21,
  "films": [
   "avrastro-advisor-hub.el",
